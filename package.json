@@ -4,7 +4,9 @@
   "description": "This repository is for Practical Development Course focused on web.",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify mandeepScript.js -o js/bundle.js",
+    "watch": "watchify mandeepScript.js -o js/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +20,9 @@
   "homepage": "https://github.com/Mandeep9952/bootcamp-group-web-project#readme",
   "dependencies": {
     "request": "^2.87.0"
+  },
+  "devDependencies": {
+    "browserify": "^16.2.2",
+    "watchify": "^3.11.0"
   }
 }
