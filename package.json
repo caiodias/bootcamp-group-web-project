@@ -4,7 +4,9 @@
   "description": "This repository is for Practical Development Course focused on web.",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify js/_sateekScript.js -o js/sateekBundle.js",
+    "watch": "watchify js/_sateekScript.js -o js/sateekBundle.js"
   },
   "repository": {
     "type": "git",
