@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        #country_name {
+            text-transform: capitalize;
+        }
+    </style>
 </head>
 <body>
     
    <h1>What is the Weather?</h1> 
-   <button id="myBtn">Click me</button>
+    country name:<br>
+    <input id="country_name"type="text" name="cname" autocomplete="off"><br>
+    
+   <p id="temp"></p>
+   <button id="myBtn">Search</button>
    <script src="js/bundle.js"></script>
 
 </body>
