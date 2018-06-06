@@ -7,6 +7,51 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pixabay Image Search</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #resultsContainer>div {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            padding: 10px;
+            background-color: #ededed;
+        }
+
+        html,
+        body {
+            margin: 10px;
+        }
+
+        #resultsContainer {
+            display: grid;
+            grid-gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-auto-rows: 250px;
+        }
+
+        .imageContainer {
+            width: 300px;
+        }
+
+        .imageContainer img {
+            width: 300px;
+        }
+
+        .imgDiv {
+            position: absolute;
+            height: 80%;
+            width: 80%;
+            display: -webkit-flex;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,13 +62,17 @@
                 <input type="text" id="searchBox">
                 <button id="searchButton" class="btn btn-primary" style="margin-left: 20px">Search</button>
             </div>
-            <div id="resultsDiv" class="row"></div>
+            
         </div>
     </div>
+    <div id="resultsContainer"></div>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/sateekBundle.js"></script>
+    <script type="text/javascript">
+       
+    </script>
 </body>
 
 </html>
