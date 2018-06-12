@@ -30,8 +30,32 @@ $searchButton.on('click', function() {
         for (var i = 0; i < responseData.hits.length; i++) {
             const gridItem = '<div class="container_gridItem">'
                 + '<div class="container_gridItem_userContainer">'
-                + '</div><div class="imgContainer" style="background-image: url(\''+ responseData.hits[i].webformatURL
-                + '\')"></div></div>';
+                +'<table>'
+                +    '<tr>'
+                +        '<td class="userImg" style="background-image: url(\''+ responseData.hits[i].userImageURL +'\')"></td>'
+                +        '<td class="userName">' + responseData.hits[i].user + '</td>'
+                +    '</tr>'
+                + '</table>'
+                +'</div><div class="imgContainer" style="background-image: url(\''+ responseData.hits[i].webformatURL
+                + '\')"></div><div class="container_gridItem_footer">'
+                +'<table>'
+                +    '<tr>'
+                +        '<td>'
+                +            '<div class="likes">'
+                +                '<div class="likeImgContainer"></div>'
+                +                '<span>' + responseData.hits[i].likes + '</span>'
+                +            '</div>'
+                +        '</td>'
+                +        '<td>'
+                +            '<div class="downloads">'
+                +                '<div class="downloadImgContainer"></div>'
+                +                '<span>'+ responseData.hits[i].downloads + '</span>'
+                +            '</div>'
+                +        '</td>'
+                +    '</tr>'
+                +'</table>'
+                +'</div>'
+                +'</div>';
             $container.append(gridItem);
         }
         

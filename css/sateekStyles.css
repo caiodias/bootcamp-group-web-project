@@ -49,13 +49,93 @@
     height: 250px;
 }
 
+/* User */
 .container_gridItem_userContainer {
     height: 20%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 5%;
 }
 
+.container_gridItem_userContainer table {
+    width: 100%;
+}
+
+.userImg {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.userName {
+    padding-left: 10px;
+}
+
+/* Image container */
 .imgContainer {
     width: 100%;
     height: 65%;    
     background-size: cover;
     background-position: center center;
+}
+
+/* Footer */
+.container_gridItem_footer {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 5%;
+}
+
+
+/* Likes */
+.container_gridItem_footer .likes {
+    height: 20px;
+    width: 50px;
+    position: relative;
+}
+
+.container_gridItem_footer .likes .likeImgContainer {
+    width: 20px;
+    height: 20px;
+    background-image: url("../img/thumbs_up.png");
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+}
+
+.likes span {
+    font-size: 0.7em;
+    position: absolute;
+    transform: translate(0, -40%);
+    top: 50%;
+    left: 22px;
+}
+
+/* Downloads */
+.container_gridItem_footer .downloads {
+    height: 20px;
+    width: 50px;
+    position: relative;
+}
+
+.container_gridItem_footer .downloads .downloadImgContainer {
+    width: 20px;
+    height: 20px;
+    background-image: url("../img/downloads.png");
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+}
+
+.downloads span {
+    font-size: 0.7em;
+    position: absolute;
+    transform: translate(0, -40%);
+    top: 50%;
+    left: 22px;
 }
