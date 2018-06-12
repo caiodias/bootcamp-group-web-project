@@ -1,5 +1,6 @@
 var $searchInput = $('.mainContainer .header input[type=text]');
 var $searchButton = $('.mainContainer .header button');
+var $container = $('.container');
 var responseData;
 
 var fetchData = function(callback) {
@@ -15,13 +16,24 @@ var fetchData = function(callback) {
         success: function (response) {
             responseData = response;
             callback();
+        },
+        error: function(request, errorType, errorMsg) {
+
         }
     });    
 };
 
 $searchButton.on('click', function() {
-    
+    $container.empty();    
     fetchData(function() {
         console.log(responseData);
+        for (var i = 0; i < responseData.hits.length; i++) {
+            const gridItem = '<div class="container_gridItem">'
+                + '<div class="container_gridItem_userContainer">'
+                + '</div><div class="imgContainer" style="background-image: url(\''+ responseData.hits[i].webformatURL
+                + '\')"></div></div>';
+            $container.append(gridItem);
+        }
+        
     });
 });
