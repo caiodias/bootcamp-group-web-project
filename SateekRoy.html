@@ -6,73 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pixabay Image Search</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        #resultsContainer>div {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            overflow: hidden;
-            padding: 10px;
-            background-color: #ededed;
-        }
-
-        html,
-        body {
-            margin: 10px;
-        }
-
-        #resultsContainer {
-            display: grid;
-            grid-gap: 15px;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            grid-auto-rows: 250px;
-        }
-
-        .imageContainer {
-            width: 300px;
-        }
-
-        .imageContainer img {
-            width: 300px;
-        }
-
-        .imgDiv {
-            position: absolute;
-            height: 80%;
-            width: 80%;
-            display: -webkit-flex;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-    </style>
+    <link rel="stylesheet" href="css/sateekStyles.css" type="text/css">
 </head>
 
 <body>
-    <div id="app" class="container">
-        <div class="row">
-            <h1>Pixabay Image Search</h1>
-            <div class="row">
-                <input type="text" id="searchBox">
-                <button id="searchButton" class="btn btn-primary" style="margin-left: 20px">Search</button>
+    
+    <div class="mainContainer">
+        <div class="header">
+            <h1>Pixabay image search</h1>
+            <input type="text" placeholder="Type what you want to search here...">
+            <button>Search</button>
+        </div>
+        <hr>
+        <div class="container">
+            <div class="container_gridItem">
+                <div class="container_gridItem_userContainer">
+                    
+                </div>
+                <div class="imgContainer">
+                    <!-- <img src="img/image (10).jpg"> -->
+                </div>
             </div>
-            
         </div>
     </div>
-    <div id="resultsContainer"></div>
 
     <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/sateekBundle.js"></script>
-    <script type="text/javascript">
-       
-    </script>
+    <script src="js/sateekScript.js"></script>
 </body>
 
 </html>
