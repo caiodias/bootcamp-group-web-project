@@ -1,7 +1,65 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 var countryName;
+let dropdown = document.getElementById('request-dropdown');
+dropdown.length = 10;
+
+ let defaultOption = document.createElement('option');
+ defaultOption.text = 'Temperature';
+
+ dropdown.add(defaultOption);
+ dropdown.selectedIndex = 0;
+
+var setTitle = document.getElementById("title");
+var setResult = document.getElementById("temp");
+
 var request = require('request');
-function getData() {
+var parsedData;
+
+function getSeletedData(selection) {
+    if (selection == "temp") {
+        setTitle.textContent= "Temperature is :";
+        console.log("temp selected");
+        setResult.innerHTML = parsedData['main']['temp'] + " &deg;C";
+    }
+    else if(selection == "weather"){
+        setTitle.textContent = "Weather is :";
+        console.log(parsedData["weather"][0]["description"])
+        setResult.innerHTML = parsedData['weather'][0]['description'];
+    }
+    else if (selection == "wind"){
+        setTitle.textContent = "Wind speed is :";
+        setResult.innerHTML = parsedData['wind']['speed'];
+    }
+    else if (selection == "clouds"){
+        setTitle.textContent = "Clouds will cover :";
+        setResult.innerHTML = parsedData['clouds']['all'] +"% Sky";
+    }
+    else if (selection == "coord"){
+        setTitle.textContent = "Location Cordinates are :";
+        setResult.innerHTML = parsedData['coord']['lon'] + " Lon and " + parsedData['coord']['lat'] + " lat";
+    }
+    else if (selection == "pressure"){
+        setTitle.textContent = "Today Pressure is :";
+        setResult.innerHTML = parsedData['main']['pressure'];
+    }
+    else if(selection == "humidity"){
+        setTitle.textContent = " Humidity :";
+        setResult.innerHTML = parsedData['main']['humidity'];
+    }
+    else if(selection == "minMaxTemp"){
+        setTitle.textContent = "Minimum and Maximum Temp";
+        setResult.innerHTML = "Min: " + parsedData['main']['temp_min'] + " &deg;C" + " Max: " + parsedData['main']['temp_max'] + " &deg;C";
+    }
+    else if(selection == "visibility"){
+         setTitle.textContent = "Visibility :";
+         setResult.innerHTML = parsedData['visibility'];
+    }
+    else{
+        setTitle.textContent = "Work is pending :";
+        setResult.innerHTML ="############";
+    }
+}
+function getData() { 
     countryName = document.querySelector("#country_name").value;
     request('http://api.openweathermap.org/data/2.5/weather?q='+encodeURI(countryName)+'&units=metric&appid=8d7071faebf065763f900f514ca03c76', function (error, response, body) {
     //   console.log('error:', error); // Print the error if one occurred
@@ -12,14 +70,13 @@ function getData() {
         document.getElementById("temp").innerHTML = "Connection error";
         console.log(error);
     } else {
-        var parsedData = JSON.parse(body);
+        parsedData = JSON.parse(body);
         console.log(parsedData);
         if (parsedData['cod'] == 200) {
-            document.getElementById("temp").innerHTML = parsedData['main']['temp'] + " &deg;C";
+           getSeletedData(dropdown.value);
         } else {
             document.getElementById("temp").innerHTML = "City not found";
         }
-        //window.alert(parsedData);
     }
     });
 }
@@ -27,9 +84,15 @@ document.querySelector("#country_name").onkeyup = function() {
     if (event.keyCode == 13) {
         console.log("Enter pressed!");
         getData();
+
     }
 };
 document.getElementById("myBtn").onclick = getData;
+
+dropdown.onchange = function() {
+    console.log(this.value);
+    getSeletedData(this.value);
+};
 
 },{"request":273}],2:[function(require,module,exports){
 'use strict';

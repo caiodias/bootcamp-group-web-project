@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-        #country_name {
-            text-transform: capitalize;
-        }
-    </style>
+    <link rel="stylesheet" href="css/mandeepStyle.css">
+    <link rel="stylesheet" href="css/instuctor.css">
 </head>
 <body>
     
@@ -17,9 +14,29 @@
     country name:<br>
     <input id="country_name"type="text" name="cname" autocomplete="off"><br>
     
-   <p id="temp"></p>
+    <section class="box">
+        <div>
+            <p id="title"></p>
+        </div>
+            <div id="content">
+                <p id="temp"></p>
+            </div>
+    </section>
+   
    <button id="myBtn">Search</button>
+   
+   <select id="request-dropdown" name="weather-condition">
+    <option value="temp">Temperature</option>
+    <option value="weather">Weather</option>
+    <option value="wind">Wind</option>
+    <option value="clouds">Clouds</option>
+    <option value="coord">Coordinates</option>
+    <option value="pressure">Pressure</option>
+    <option value="humidity">Humidity</option>
+    <option value="minMaxTemp">Max and Min Temp</option>
+    <option value="visibility">Visibility</option>
+    <option value="all">All Options</option>
+  </select>
    <script src="js/bundle.js"></script>
-
 </body>
 </html>
