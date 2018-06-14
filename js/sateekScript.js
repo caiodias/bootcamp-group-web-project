@@ -23,12 +23,40 @@ var fetchData = function(callback) {
     });    
 };
 
+var $gridItem;
+var $expandImageButton;
+var $imageModal = $('.expandedImageModal');
+var $imageModalImg = $('.expandedImageModal').children('img');
+var $imageModalCloseButton = $('.expandedImageModal').children('.close');
+var gridItemOnClick = function() {
+    window.open(responseData.hits[$(this).data('pos')].pageURL, '_blank');
+    // alert(responseData.hits[$(this).data('pos')].largeImageURL);
+};
+
+var expandImageOnClick = function() {
+    $imageModalImg.attr('src', responseData.hits[$(this).parent().parent().data('pos')].largeImageURL);
+    $imageModal.css('display', 'flex');
+    event.stopPropagation();
+};
+
+$imageModalCloseButton.on('click', function() {
+    $imageModal.hide();
+});
+
+$imageModal.on('click', function() {
+    $imageModal.hide();
+});
+
+$imageModalImg.on('click', function() {
+    event.stopPropagation();
+});
+
 $searchButton.on('click', function() {
     $container.empty();    
     fetchData(function() {
         console.log(responseData);
         for (var i = 0; i < responseData.hits.length; i++) {
-            const gridItem = '<div class="container_gridItem">'
+            const gridItem = '<div class="container_gridItem" data-pos="' + i +'">'
                 + '<div class="container_gridItem_userContainer">'
                 +'<table>'
                 +    '<tr>'
@@ -37,7 +65,10 @@ $searchButton.on('click', function() {
                 +    '</tr>'
                 + '</table>'
                 +'</div><div class="imgContainer" style="background-image: url(\''+ responseData.hits[i].webformatURL
-                + '\')"></div><div class="container_gridItem_footer">'
+                + '\')">'
+                +'<div class="imgContainerExpandImgButton">'       
+                +'</div>'
+                +    '</div><div class="container_gridItem_footer">'
                 +'<table>'
                 +    '<tr>'
                 +        '<td>'
@@ -58,6 +89,22 @@ $searchButton.on('click', function() {
                 +'</div>';
             $container.append(gridItem);
         }
-        
+        $gridItem = $('.container_gridItem');
+        $gridItem.on('click', gridItemOnClick);
+        $expandImageButton = $('.imgContainerExpandImgButton');
+        $expandImageButton.on('click', expandImageOnClick);
     });
 });
+
+// $('.container_gridItem').on('click', function() {
+//     alert(responseData.hits[$(this).data('pos')].largeImageURL);
+// });
+
+
+// $(window).scroll(function() {
+//     if($(window).scrollTop() + $(window).height() == $(document).height()) {
+//         console.log($(window).scrollTop() + $(window).height());
+//         console.log($(document).height());
+//         alert("bottom!");
+//     }
+//  });
