@@ -30,31 +30,34 @@ var $imageModalImg = $('.expandedImageModal').children('img');
 var $imageModalCloseButton = $('.expandedImageModal').children('.close');
 var gridItemOnClick = function() {
     window.open(responseData.hits[$(this).data('pos')].pageURL, '_blank');
-    // alert(responseData.hits[$(this).data('pos')].largeImageURL);
 };
 
+
 var expandImageOnClick = function() {
-    $imageModalImg.attr('src', responseData.hits[$(this).parent().parent().data('pos')].largeImageURL);
+    $imageModalImg.one('load', function() {
+        $(this).show();
+    }).attr('src', responseData.hits[$(this).parent().parent().data('pos')].largeImageURL);
     $imageModal.css('display', 'flex');
     event.stopPropagation();
 };
 
 $imageModalCloseButton.on('click', function() {
     $imageModal.hide();
+    $imageModalImg.hide();
 });
 
 $imageModal.on('click', function() {
     $imageModal.hide();
+    $imageModalImg.hide();
 });
 
 $imageModalImg.on('click', function() {
     event.stopPropagation();
 });
 
-$searchButton.on('click', function() {
-    $container.empty();    
-    fetchData(function() {
-        console.log(responseData);
+
+function renderFetchedData() {
+    console.log(responseData);
         for (var i = 0; i < responseData.hits.length; i++) {
             const gridItem = '<div class="container_gridItem" data-pos="' + i +'">'
                 + '<div class="container_gridItem_userContainer">'
@@ -93,7 +96,22 @@ $searchButton.on('click', function() {
         $gridItem.on('click', gridItemOnClick);
         $expandImageButton = $('.imgContainerExpandImgButton');
         $expandImageButton.on('click', expandImageOnClick);
+}
+$searchButton.on('click', function() {
+    $container.empty();    
+    fetchData(function() {
+        renderFetchedData();
     });
+});
+
+$searchInput.on('keypress', function() {
+    if (event.which == 13) {
+        $container.empty();
+        fetchData(function() {
+            renderFetchedData();
+        });
+        return false;
+    }
 });
 
 // $('.container_gridItem').on('click', function() {

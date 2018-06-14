@@ -183,8 +183,9 @@
 }
 
 .expandedImageModal img {
-    width: 80%;
-    display: block;
+    max-width: 80%;
+    max-height: 80%;
+    display: none;
     
 }
 
