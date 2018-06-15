@@ -2,19 +2,33 @@ var $searchInput = $('.mainContainer .header input[type=text]');
 var $searchButton = $('.mainContainer .header button');
 var $container = $('.container');
 var responseData;
+var responseTotalHits;
+var responseTotal;
+var responseHits;
+var pageNumber = 1;
+var searchQuery = "";
 
-var fetchData = function (callback) {
+var fetchData = function (isNewSearch, callback) {
+    if (isNewSearch) {
+        searchQuery = $searchInput.val();
+    }
     $.ajax({
         type: "GET",
         url: "https://pixabay.com/api/",
         data: {
             key: '9176852-528521b115002c31dd0c1b967',
-            q: $searchInput.val(),
+            q: searchQuery,
+            page: pageNumber,
             per_page: 40
         },
         dataType: "json",
         success: function (response) {
-            responseData = response;
+            if (isNewSearch) {
+                responseData = response;
+            } else {
+                responseData.hits.push.apply(responseData.hits, response.hits);
+            }
+            
             callback();
         },
         error: function (request, errorType, errorMsg) {
@@ -59,9 +73,9 @@ $imageModalImg.on('click', function () {
 });
 
 
-function renderFetchedData() {
+function renderFetchedData(startIndex) {
     console.log(responseData);
-    for (var i = 0; i < responseData.hits.length; i++) {
+    for (var i = startIndex; i < responseData.hits.length; i++) {
         const $containerGridItem = $('<div>', {
             class: 'container_gridItem'
         });
@@ -129,16 +143,18 @@ function renderFetchedData() {
 }
 $searchButton.on('click', function () {
     $container.empty();
-    fetchData(function () {
-        renderFetchedData();
+    pageNumber = 1;
+    fetchData(true, function () {
+        renderFetchedData(0);
     });
 });
 
 $searchInput.on('keypress', function () {
     if (event.which == 13) {
         $container.empty();
-        fetchData(function () {
-            renderFetchedData();
+        pageNumber = 1;
+        fetchData(true, function () {
+            renderFetchedData(0);
         });
         return false;
     }
@@ -153,6 +169,10 @@ $(window).scroll(function () {
     if ($(window).scrollTop() + $(window).height() == $(document).height()) {
         console.log($(window).scrollTop() + $(window).height());
         console.log($(document).height());
-
+        pageNumber = pageNumber + 1;
+        fetchData(false, function() {
+            var index = responseData.hits.length - 40;
+            renderFetchedData(index);
+        });
     }
 });
