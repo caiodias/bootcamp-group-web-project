@@ -82,6 +82,9 @@
     background-size: cover;
     background-position: center center;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Image Expand Button and its animation */
@@ -96,6 +99,7 @@
     background-position: center center;
     border-radius: 50%;
     display: none;
+    align-self: flex-start
 }
 
 .imgContainer:hover .imgContainerExpandImgButton {
@@ -186,8 +190,41 @@
     max-width: 80%;
     max-height: 80%;
     display: none;
-    
 }
+
+
+/* Loaders */
+.expandedImageModalImageLoader, .itemImageLoader {
+    border-radius: 50%;
+    -webkit-animation: spin .65s linear infinite; /* Safari */
+    animation: spin .65s linear infinite;
+}
+
+.expandedImageModalImageLoader {
+    border: 2vw solid #4d4d4d44;
+    border-top: 2vw solid rgba(255, 255, 255, 0.363);
+    width: 10vw;
+    height: 10vw;
+}
+
+.itemImageLoader {
+    border: 5px solid #a5a5a5;
+    border-top: 5px solid #333333;
+    width: 30px;
+    height: 30px;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 
 /* Modal appear animation */
 /* Add Animation */
@@ -213,7 +250,7 @@
     position: absolute;
     top: 15px;
     right: 35px;
-    color: #f1f1f1;
+    color: rgba(255, 255, 255, 0.363);
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;
