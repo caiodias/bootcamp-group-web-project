@@ -77,8 +77,11 @@ function getData() {
             document.getElementById("temp").innerHTML = "City not found";
         }
     }
-    });
+    });    
 }
+// function getCityData(){
+//     cityName = document.querySelector("#country_name").value;
+// }
 document.querySelector("#country_name").onkeyup = function() {
     if (event.keyCode == 13) {
         console.log("Enter pressed!");
