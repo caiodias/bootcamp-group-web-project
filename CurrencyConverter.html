@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-     <link rel="stylesheet" href="css/styles.css">
+     <link rel="stylesheet" href="css/style.css">
     </head>
-<body>
+<body onload="loadCurriencies()">
+  <div class="Container">
+      <h2>CurrencyConverter</h2>
+  
 
-<h2>CurrencyConverter</h2>
-Euro: <input id="sd" type="text">
+Amount: <input id="amount" type="text" oninput="convertCurrency()">
 <h2 id='cad'></h2>
-<button onclick="currency()">CAD</button>
 
+        From:<select id="from" onchange="convertCurrency()"></select>
 
+       To:<select id="to"onchange="convertCurrency()"></select>
+    
+</br>
+</br>
+Result: <span id="result"></span>
+</div>
 <script src="js/developer.js"> </script>
 <script src="js/jquery.min.js"></script>
 </body>
