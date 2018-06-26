@@ -2,7 +2,7 @@
     font-family: Arial, Helvetica, sans-serif;  
 }
 html {
-    height: 100%;
+    height: 100vh;
     margin: 0;
     padding: 0;
 }
@@ -13,7 +13,7 @@ body{
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
+    height: 100vh;
     display: flex;
     align-content: center;
     justify-content: center;
@@ -61,12 +61,25 @@ h1{
 
 .centre{
     margin: auto;
-    width: 50%;
+    min-width: 420px;
+    max-width: 700px;
+    width: 70%;
     border-radius: 3vw;
     padding: 10px;
     text-align: center;
     background: linear-gradient(to bottom, #FFE082, #FFECB3);
     box-shadow: 0px 0px 8px grey;
+}
+
+@media only screen and (max-width: 450px) {
+    .centre {
+        min-width: 300px;
+        width: 90%;
+        padding: 10px;
+    }
+    .center > div {
+        width: 90%;
+    }
 }
 /* .ui-tooltip {
     background: #4a4a4a;
