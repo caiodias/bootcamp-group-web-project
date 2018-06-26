@@ -13,36 +13,40 @@
 </head>
 
 <body>
-
-    <h1>What is the Weather?</h1>
-    country name:
-    <br>
-    <input id="country_name" type="text" name="cname" autocomplete="off">
-    <br>
-
-    <section class="box">
-        <div>
-            <p id="title"></p>
+    <div class="centre">
+        <h1>What is the Weather?</h1>
+        Enter city name:
+        <br>
+        <div id="input_container">
+            <div id="location_pin"></div><input id="country_name" type="text" name="cname" autocomplete="off">
         </div>
-        <div id="content">
-            <p id="temp"></p>
-        </div>
-    </section>
+        <br>
 
-    <button id="myBtn">Search</button>
+        <section class="box">
+            <div>
+                <p id="title"></p>
+            </div>
+            <div id="content">
+                <p id="temp"></p>
+            </div>
+        </section>
 
-    <select id="request-dropdown" name="weather-condition">
-        <option value="temp">Temperature</option>
-        <option value="weather">Weather</option>
-        <option value="wind">Wind</option>
-        <option value="clouds">Clouds</option>
-        <option value="coord">Coordinates</option>
-        <option value="pressure">Pressure</option>
-        <option value="humidity">Humidity</option>
-        <option value="minMaxTemp">Max and Min Temp</option>
-        <option value="visibility">Visibility</option>
-        <option value="all">All Options</option>
-    </select>
+        <button id="myBtn">Search</button>
+
+        <select id="request-dropdown" name="weather-condition">
+            <option value="temp">Temperature</option>
+            <option value="weather">Weather</option>
+            <option value="wind">Wind</option>
+            <option value="clouds">Clouds</option>
+            <option value="coord">Coordinates</option>
+            <option value="pressure">Pressure</option>
+            <option value="humidity">Humidity</option>
+            <option value="minMaxTemp">Max and Min Temp</option>
+            <option value="visibility">Visibility</option>
+            <option value="all">All Options</option>
+        </select>
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>

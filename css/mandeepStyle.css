@@ -1,5 +1,22 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;  
+}
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 body{
-    background-color: rgb(215, 231, 250);
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #FF6F00, #FFC107);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
 #country_name {
     text-transform: capitalize;
@@ -8,14 +25,16 @@ h1{
     font-size: 200%;
 }
 .box {
-    margin-top: 2%;
     border: 2px solid;
-    background-color: white;
+    background: linear-gradient(to bottom, #F9A825, #FDD835);
     width: 200px;
     height: 200px;
+    margin: 2% auto;
+    width: 75%;
 }
 .box > div > p {
     background-color: antiquewhite;
+    align-content: center;
 }
 
 /* .ui-menu .ui-menu-item a,
@@ -40,6 +59,15 @@ h1{
     padding: 0;
 }
 
+.centre{
+    margin: auto;
+    width: 50%;
+    border-radius: 3vw;
+    padding: 10px;
+    text-align: center;
+    background: linear-gradient(to bottom, #FFE082, #FFECB3);
+    box-shadow: 0px 0px 8px grey;
+}
 /* .ui-tooltip {
     background: #4a4a4a;
     color: #96f226;
@@ -55,5 +83,40 @@ h1{
 .ui-menu .ui-menu-item a{
     background:red;
     height:10px;
-font-size:8px;}
+font-size:8px;}*/
 
+#input_container {
+    border: 1px solid grey;
+    border-radius: 6px;
+    background-color: white;
+    display: inline-flex;
+    width: 75%;
+    position: relative;
+}
+
+#input_container input {
+    display: table-cell;
+    box-sizing: border-box;
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 1em;
+    padding: 5px 10px;
+    position: relative;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+#input:focus + #input_container {
+    box-shadow: 0px 0px 5px orange;
+    border: 1px solid red;
+}
+
+#input_container #location_pin {
+    display: block;
+    background-image: url('../images/location-pin.png');
+    background-position: center center;
+    background-size: auto 23px;
+    background-repeat: no-repeat;
+    width: 30px;
+}
