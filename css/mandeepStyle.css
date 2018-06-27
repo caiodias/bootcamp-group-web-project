@@ -9,7 +9,7 @@ html {
 body{
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #FF6F00, #FFC107);
+    background: linear-gradient(to bottom, #64B5F6, #B2EBF2);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -26,7 +26,7 @@ h1{
 }
 .box {
     border: 2px solid;
-    background: linear-gradient(to bottom, #F9A825, #FDD835);
+    background: linear-gradient(to bottom, #4FC3F7, #B3E5FC);
     width: 200px;
     height: 200px;
     margin: 2% auto;
@@ -37,18 +37,6 @@ h1{
     align-content: center;
 }
 
-/* .ui-menu .ui-menu-item a,
-    .ui-menu .ui-menu-item a.ui-state-hover,
-    .ui-menu .ui-menu-item a.ui-state-active {
-        font-weight: normal;
-        margin: -1px;
-        text-align: left;
-        font-size: 14px;
-    }
-
-    .ui-autocomplete-loading {
-        background: white;
-    } */
 
 
 .ui-autocomplete {
@@ -67,7 +55,7 @@ h1{
     border-radius: 3vw;
     padding: 10px;
     text-align: center;
-    background: linear-gradient(to bottom, #FFE082, #FFECB3);
+    background: linear-gradient(to bottom, rgb(130, 180, 255), rgb(208, 179, 255));
     box-shadow: 0px 0px 8px grey;
 }
 
@@ -81,23 +69,6 @@ h1{
         width: 90%;
     }
 }
-/* .ui-tooltip {
-    background: #4a4a4a;
-    color: #96f226;
-    border: 2px solid #454545;
-    border-radius: 0px;
-    box-shadow: 0 0 
-}
-
-.ui-autocomplete.source:hover {
-    background: #454545;
-}
-
-.ui-menu .ui-menu-item a{
-    background:red;
-    height:10px;
-font-size:8px;}*/
-
 #input_container {
     border: 1px solid grey;
     border-radius: 6px;
@@ -132,4 +103,41 @@ font-size:8px;}*/
     background-size: auto 23px;
     background-repeat: no-repeat;
     width: 30px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: black;
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }
