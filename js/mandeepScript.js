@@ -4,7 +4,7 @@ $(function() {
     var countryName;
     var $countryInput = $('#country_name');
     let dropdown = document.getElementById('request-dropdown');
-    dropdown.length = 10;
+    dropdown.length = 9;
     let defaultOption = document.createElement('option');
     defaultOption.text = 'Temperature';
 
