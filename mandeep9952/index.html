@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/mandeepStyle.css">
+    <link rel="stylesheet" href="css/mandeepAutocompleteStyle.css">
+    <link rel="stylesheet" href="css/instuctor.css">
+    <!-- <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/flick/jquery-ui.css" /> -->
+</head>
+
+<body>
+    <div class="centre">
+        <h1>What is the Weather?</h1>
+     
+        <br>
+        <div id="input_container">
+            <div id="location_pin", class="tooltip"><span class="tooltiptext">Current Location</span></div><input id="country_name" type="text" name="cname" autocomplete="off" placeholder="Enter city name:"/>
+        </div>
+        <br>
+
+        <section class="box">
+            <!-- <video controls>
+                <source src="videos/Arabia Weather Animation Intro Sample.mp4#t=0,21" type="video/mp4">
+            </video> -->
+            
+            <div>
+                <p id="title"></p>
+            </div>
+            <div id="content">
+                <p id="temp"></p>
+            </div>
+        </section>
+
+        <button id="myBtn">Search</button>
+
+        <select id="request-dropdown" name="weather-condition">
+            <option value="temp">Temperature</option>
+            <option value="weather">Weather</option>
+            <option value="wind">Wind</option>
+            <option value="clouds">Clouds</option>
+            <option value="coord">Coordinates</option>
+            <option value="pressure">Pressure</option>
+            <option value="humidity">Humidity</option>
+            <option value="minMaxTemp">Max and Min Temp</option>
+            <option value="visibility">Visibility</option>
+        </select>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+    <script src="js/mandeepAutocompleteScript.js"></script>
+    <script src="js/bundle.js"></script>
+</body>
+
+</html>
