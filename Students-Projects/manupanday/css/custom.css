@@ -1,0 +1,190 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+	display:block;
+	width:100%;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 4px 6px;
+    text-decoration: none;
+	width:100%;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+.chip {
+    height: 250px;
+    border-radius: 50px;
+    background-color: #ccc;
+	margin:.5px;
+    text-align: center;
+	width:100%;
+}
+input{
+    border-radius: 40px;
+    background-color: #ccc;
+	padding:10px;
+}
+
+.chip img{
+    float: right;
+    border-radius: 50%;
+    height:100px;
+    width:100px;
+    
+}
+section{
+  font:2px;
+  
+}
+
+
+footer{
+  background-color: #333;
+  margin:center;
+  color:white;
+  text-align: center;
+}
+/*For Tablet view*/
+
+@media only screen and (min-width: 460px) {
+	ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+.chip {
+    height: 230px;
+    border-radius: 50px;
+    background-color: #ccc;
+	margin:2px;
+    text-align: center;
+}
+input{
+    border-radius: 60px;
+    background-color: #ccc;
+	padding:15px;
+}
+
+.chip img{
+    float: right;
+    border-radius: 50%;
+    height:160px;
+    width:160px;
+    
+}
+section{
+  font:20px;
+  
+}
+
+
+footer{
+  background-color: #333;
+  margin:center;
+  color:white;
+  text-align: center;
+}
+}
+
+@media only screen and (min-width: 830px) {
+		ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+.chip {
+    height: 230px;
+    border-radius: 50px;
+    background-color: #ccc;
+	margin:2px;
+    text-align: center;
+}
+input{
+    border-radius: 60px;
+    background-color: #ccc;
+	padding:15px;
+}
+
+.chip img{
+    float: right;
+    border-radius: 50%;
+    height:160px;
+    width:160px;
+    
+}
+section{
+  font:20px;
+  
+}
+
+
+footer{
+  background-color: #333;
+  margin:center;
+  color:white;
+  text-align: center;
+
+}
+	
+}
