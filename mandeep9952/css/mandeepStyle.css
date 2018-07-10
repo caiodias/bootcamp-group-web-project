@@ -1,0 +1,143 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;  
+}
+html {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #64B5F6, #B2EBF2);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+#country_name {
+    text-transform: capitalize;
+}
+h1{
+    font-size: 200%;
+}
+.box {
+    border: 2px solid;
+    background: linear-gradient(to bottom, #4FC3F7, #B3E5FC);
+    width: 200px;
+    height: 200px;
+    margin: 2% auto;
+    width: 75%;
+}
+.box > div > p {
+    background-color: antiquewhite;
+    align-content: center;
+}
+
+
+
+.ui-autocomplete {
+    background: white;
+    display: inline-block;
+    list-style: none;
+    margin: 0px;
+    padding: 0;
+}
+
+.centre{
+    margin: auto;
+    min-width: 420px;
+    max-width: 700px;
+    width: 70%;
+    border-radius: 3vw;
+    padding: 10px;
+    text-align: center;
+    background: linear-gradient(to bottom, rgb(130, 180, 255), rgb(208, 179, 255));
+    box-shadow: 0px 0px 8px grey;
+}
+
+@media only screen and (max-width: 450px) {
+    .centre {
+        min-width: 300px;
+        width: 90%;
+        padding: 10px;
+    }
+    .center > div {
+        width: 90%;
+    }
+}
+#input_container {
+    border: 1px solid grey;
+    border-radius: 6px;
+    background-color: white;
+    display: inline-flex;
+    width: 75%;
+    position: relative;
+}
+
+#input_container input {
+    display: table-cell;
+    box-sizing: border-box;
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 1em;
+    padding: 5px 10px;
+    position: relative;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+#input:focus + #input_container {
+    box-shadow: 0px 0px 5px orange;
+    border: 1px solid red;
+}
+
+#input_container #location_pin {
+    display: block;
+    background-image: url('../images/location-pin.png');
+    background-position: center center;
+    background-size: auto 23px;
+    background-repeat: no-repeat;
+    width: 30px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: black;
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
